@@ -182,8 +182,8 @@ body::after{
   overflow:hidden;
 }
 .mc-slide{width:33.333%;flex-shrink:0;display:flex;flex-direction:column;overflow:hidden;min-height:0;}
-/* Slide 1: 2-column layout on desktop */
-.mc-slide:first-child{flex-direction:row;}
+/* Slide 1: photo fills full, text overlays */
+.mc-slide:first-child{flex-direction:column;position:relative;}
 
 /* Close btn */
 .mc-close{
@@ -198,7 +198,7 @@ body::after{
 
 /* ── Slide 1: Photo + Message ── */
 .mc-photo{
-  width:55%;flex-shrink:0;
+  width:100%;flex-shrink:0;
   position:relative;overflow:hidden;
   background:linear-gradient(135deg,#fde8f0,#fac8d8);
   aspect-ratio:unset;max-height:none;height:100%;
@@ -215,25 +215,31 @@ body::after{
 }
 
 .mc-info{
-  flex:1;padding:36px 32px 28px;
-  display:flex;flex-direction:column;gap:14px;overflow-y:auto;
-  justify-content:center;
-  background:linear-gradient(160deg,#fff8f2,#fde8d8);
-  position:relative;
+  position:absolute;bottom:44px;right:0;
+  width:42%;max-width:320px;
+  padding:22px 26px 20px;
+  display:flex;flex-direction:column;gap:10px;
+  justify-content:flex-end;
+  background:linear-gradient(135deg,rgba(255,248,242,.92),rgba(253,232,216,.95));
+  backdrop-filter:blur(12px);
+  border-radius:18px 0 0 18px;
+  box-shadow:-4px 4px 24px rgba(0,0,0,.12);
+  z-index:5;
+  border-left:none;border-right:none;
 }
 .mc-info::after{
   content:'✿';position:absolute;bottom:-12px;right:10px;
   font-size:72px;color:rgba(210,80,120,.05);pointer-events:none;
 }
-.mc-date{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#c89878;font-weight:600;}
+.mc-date{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:#c89878;font-weight:600;}
 .mc-name{
   font-family:'Dancing Script',cursive;
-  font-size:clamp(34px,3.6vw,52px);font-weight:700;color:#6b1a2a;line-height:1.1;
+  font-size:clamp(26px,2.8vw,38px);font-weight:700;color:#6b1a2a;line-height:1.1;
 }
-.mc-div{width:48px;height:3px;background:linear-gradient(90deg,#e86040,#ffaa70);border-radius:99px;}
+.mc-div{width:36px;height:2.5px;background:linear-gradient(90deg,#e86040,#ffaa70);border-radius:99px;}
 .mc-msg{
-  font-size:clamp(15px,1.5vw,19px);color:#7a3020;
-  line-height:1.85;font-style:italic;font-weight:400;
+  font-size:clamp(12px,1.2vw,15px);color:#7a3020;
+  line-height:1.75;font-style:italic;font-weight:400;
 }
 
 /* ── Slide 2: Quote ── */
