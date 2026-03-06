@@ -433,13 +433,42 @@ body::after{
   .cw::before{width:6px;height:13px;top:-10px;}
   .cw::after{width:10px;height:3px;top:-4px;}
 
-  /* Modal full-width on mobile */
-  .mc{width:96vw;border-radius:18px;}
-  .mc-photo{max-height:44vh;}
-  .mc-quote-slide{padding:24px 18px 40px;gap:11px;}
-  .q-text{font-size:13px;}
-  .mc-gift-slide{padding:20px 18px 40px;gap:11px;}
-  .gift-photo{width:min(65%,160px);}
+  /* ── Modal: stacked photo+info on mobile ── */
+  .mc{width:98vw;border-radius:16px;height:90vh;max-height:90vh;}
+  .mc-close{width:38px;height:38px;font-size:17px;top:8px;right:8px;background:rgba(0,0,0,.48);}
+
+  /* Slide 1 – photo fixed height, info fills remaining space */
+  .mc-slide:first-child{display:flex;flex-direction:column;overflow:hidden;}
+  .mc-photo{height:40vh;min-height:40vh;max-height:40vh;flex-shrink:0;}
+  .mc-info{
+    position:static;width:100%;max-width:100%;
+    flex:1 1 auto;overflow-y:auto;
+    box-shadow:none;border-radius:0;
+    padding:14px 16px 62px;
+    background:linear-gradient(135deg,rgba(255,248,242,1),rgba(253,232,216,1));
+  }
+  .mc-info::after{display:none;}
+  .mc-date{font-size:10px;letter-spacing:2.5px;}
+  .mc-name{font-size:clamp(20px,5.5vw,28px);}
+  .mc-msg{font-size:12px;line-height:1.65;}
+
+  /* Slide 2 – quote */
+  .mc-quote-slide{padding:22px 18px 52px;gap:10px;}
+  .q-emoji-big{font-size:34px;}
+  .q-open,.q-close-quote{font-size:34px;}
+  .q-text{font-size:13px;line-height:1.7;}
+  .q-name{font-size:15px;}
+
+  /* Slide 3 – gift */
+  .mc-gift-slide{padding:22px 18px 52px;gap:12px;}
+  .gift-photo{width:min(58%,150px);}
+  .gift-item-name{font-size:clamp(20px,5.5vw,30px);}
+
+  /* Nav dots + next button */
+  .mc-bottom{height:42px;gap:10px;}
+  .mc-dot{width:10px;height:10px;}
+  .mc-dot.active{width:22px;}
+  .next-btn{bottom:6px;right:10px;padding:7px 14px;font-size:11px;}
 }
 
 /* Small mobile ≤ 360px — 3 columns */
@@ -460,7 +489,20 @@ body::after{
     gap:10px;
   }
   .card{min-height:110px;}
-  .mc{width:min(88vw,500px);}
+  /* Modal – tablet stacked layout */
+  .mc{width:min(90vw,480px);height:85vh;max-height:85vh;}
+  .mc-close{width:36px;height:36px;}
+  .mc-slide:first-child{display:flex;flex-direction:column;overflow:hidden;}
+  .mc-photo{height:40vh;min-height:40vh;max-height:40vh;flex-shrink:0;}
+  .mc-info{position:static;width:100%;max-width:100%;flex:1 1 auto;overflow-y:auto;box-shadow:none;border-radius:0;padding:14px 18px 60px;background:linear-gradient(135deg,rgba(255,248,242,1),rgba(253,232,216,1));}
+  .mc-info::after{display:none;}
+  .mc-name{font-size:clamp(22px,4.5vw,32px);}
+  .mc-msg{font-size:13px;}
+  .mc-quote-slide{padding:24px 24px 52px;gap:11px;}
+  .mc-gift-slide{padding:22px 24px 52px;gap:13px;}
+  .gift-photo{width:min(55%,170px);}
+  .mc-bottom{height:40px;}
+  .next-btn{bottom:6px;}
 }
 
 /* Tablet landscape 769–1024px */
