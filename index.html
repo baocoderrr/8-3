@@ -164,9 +164,9 @@ body::after{
 }
 
 .mc{
-  width:min(92vw,620px);
-  max-height:92vh;
-  height:92vh;
+  width:min(92vw,900px);
+  max-height:86vh;
+  height:86vh;
   border-radius:22px;overflow:hidden;
   box-shadow:0 0 90px rgba(220,120,60,.45),0 28px 64px rgba(0,0,0,.75);
   transform:scale(.68) translateY(60px) rotate(-2deg);opacity:0;
@@ -181,6 +181,8 @@ body::after{
   transition:transform .42s cubic-bezier(.4,0,.2,1);
 }
 .mc-slide{width:33.333%;flex-shrink:0;display:flex;flex-direction:column;overflow:hidden;min-height:0;}
+/* Slide 1: 2-column layout on desktop */
+.mc-slide:first-child{flex-direction:row;}
 
 /* Close btn */
 .mc-close{
@@ -195,10 +197,10 @@ body::after{
 
 /* ── Slide 1: Photo + Message ── */
 .mc-photo{
-  width:100%;aspect-ratio:3/4;flex-shrink:0;
+  width:42%;flex-shrink:0;
   position:relative;overflow:hidden;
   background:linear-gradient(135deg,#fde8f0,#fac8d8);
-  max-height:58vh;
+  aspect-ratio:unset;max-height:none;height:100%;
 }
 .mc-photo img{
   position:absolute;inset:0;width:100%;height:100%;
@@ -212,8 +214,9 @@ body::after{
 }
 
 .mc-info{
-  flex:1;padding:22px 28px 18px;
-  display:flex;flex-direction:column;gap:10px;overflow-y:auto;
+  flex:1;padding:44px 44px 32px;
+  display:flex;flex-direction:column;gap:16px;overflow-y:auto;
+  justify-content:center;
   background:linear-gradient(160deg,#fff8f2,#fde8d8);
   position:relative;
 }
@@ -221,22 +224,22 @@ body::after{
   content:'✿';position:absolute;bottom:-12px;right:10px;
   font-size:72px;color:rgba(210,80,120,.05);pointer-events:none;
 }
-.mc-date{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:#c89878;font-weight:600;}
+.mc-date{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#c89878;font-weight:600;}
 .mc-name{
   font-family:'Dancing Script',cursive;
-  font-size:clamp(28px,4vw,42px);font-weight:700;color:#6b1a2a;line-height:1.1;
+  font-size:clamp(34px,3.6vw,52px);font-weight:700;color:#6b1a2a;line-height:1.1;
 }
-.mc-div{width:38px;height:3px;background:linear-gradient(90deg,#e86040,#ffaa70);border-radius:99px;}
+.mc-div{width:48px;height:3px;background:linear-gradient(90deg,#e86040,#ffaa70);border-radius:99px;}
 .mc-msg{
-  font-size:clamp(14px,3vw,17px);color:#7a3020;
-  line-height:1.75;font-style:italic;font-weight:400;
+  font-size:clamp(15px,1.5vw,19px);color:#7a3020;
+  line-height:1.85;font-style:italic;font-weight:400;
 }
 
 /* ── Slide 2: Quote ── */
 .mc-quote-slide{
   flex:1;display:flex;flex-direction:column;
   align-items:center;justify-content:center;
-  padding:28px 22px 52px;gap:12px;
+  padding:40px 80px 70px;gap:16px;
   overflow-y:auto;
   background:linear-gradient(160deg,#fff0f5,#fde8f0,#fff0f5);
   position:relative;overflow:hidden;text-align:center;
@@ -252,7 +255,7 @@ body::after{
   color:rgba(180,60,80,.55);font-weight:700;position:relative;z-index:1;
 }
 .q-emoji-big{
-  font-size:34px;position:relative;z-index:1;
+  font-size:48px;position:relative;z-index:1;
   animation:floatE 3.2s ease-in-out infinite;
 }
 @keyframes floatE{0%,100%{transform:translateY(0);}50%{transform:translateY(-9px);}}
@@ -263,9 +266,9 @@ body::after{
 .q-open{align-self:flex-start;margin-bottom:-6px;}
 .q-close-quote{align-self:flex-end;margin-top:-6px;}
 .q-text{
-  font-size:clamp(14px,1.8vw,18px);color:#7a2035;
+  font-size:clamp(16px,1.6vw,22px);color:#7a2035;
   line-height:1.9;font-style:italic;
-  position:relative;z-index:1;max-width:460px;
+  position:relative;z-index:1;max-width:580px;
 }
 .q-name{
   font-family:'Dancing Script',cursive;
@@ -283,7 +286,7 @@ body::after{
 .mc-gift-slide{
   flex:1;display:flex;flex-direction:column;
   align-items:center;justify-content:center;
-  padding:22px 20px 52px;gap:12px;
+  padding:40px 80px 70px;gap:18px;
   overflow-y:auto;
   background:linear-gradient(160deg,#fff5ee,#fde0cc,#fff8f2);
   position:relative;overflow:hidden;text-align:center;
@@ -298,7 +301,7 @@ body::after{
 }
 /* Gift photo frame — matches photo slide proportions */
 .gift-photo{
-  width:min(72%,190px);
+  width:min(55%,260px);
   aspect-ratio:3/4;
   border-radius:14px;overflow:hidden;
   position:relative;z-index:1;
@@ -323,7 +326,7 @@ body::after{
 }
 .gift-item-name{
   font-family:'Dancing Script',cursive;
-  font-size:clamp(24px,3.5vw,36px);font-weight:700;color:#6b2810;
+  font-size:clamp(28px,3vw,44px);font-weight:700;color:#6b2810;
   position:relative;z-index:1;line-height:1.2;
 }
 .gift-person{
